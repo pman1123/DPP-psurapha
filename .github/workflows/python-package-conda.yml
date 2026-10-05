@@ -1,0 +1,19 @@
+name: Run Python Script
+
+on:
+  workflow_dispatch: # This adds a manual "Run" button on the website
+
+jobs:
+  run-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy Repo Files to Server
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run my python file
+        run: python 42.py
